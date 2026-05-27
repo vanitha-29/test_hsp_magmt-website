@@ -7,6 +7,11 @@ import QuoteSection from './components/QuoteSection';
 import FinalLanding from './components/FinalLanding';
 import { Sparkles, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import img1 from './assets/photos/14e1758c-2a0e-406b-9c5c-62ea38419492.png';
+import img2 from './assets/photos/pexels-photo-1024960.jpeg';
+import img3 from './assets/photos/image2.png';
+import img4 from './assets/photos/picture2.jpg';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,25 +22,25 @@ function App() {
     {
       title: "The First Message",
       story: "It started with a simple 'Hii'. I remember you saying 'nee romba nalla ponnu nu sonnanga athan'... that was the moment I knew you were different. A tiny spark that turned into our entire world.",
-      imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+      imageUrl: img1,
       reverse: false
     },
     {
       title: "The Funniest Memories",
       story: "From that time we couldn't stop laughing in the library to our failed attempt at cooking—every moment with you is a comedy special. You make the mundane feel extraordinary.",
-      imageUrl: "https://images.unsplash.com/photo-1517049679285-440f804132bb",
+      imageUrl: img3,
       reverse: true
     },
     {
       title: "The Hard Times",
       story: "We didn't just survive the storms; we learned to dance in the rain. Your strength inspired me, and your presence was the only light I needed in the dark.",
-      imageUrl: "https://images.unsplash.com/photo-1516715667182-c8e21f1ae6f4",
+      imageUrl:img4,
       reverse: false
     },
     {
       title: "Why You Are Special",
       story: "In a world of constant change, you are my constant. You see the parts of me I try to hide and love them anyway. That is a rare kind of magic.",
-      imageUrl: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac",
+      imageUrl: img2,
       reverse: true
     }
   ];

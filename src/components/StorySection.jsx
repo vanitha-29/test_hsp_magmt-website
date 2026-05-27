@@ -17,7 +17,7 @@ const StorySection = ({ title, story, imageUrl, reverse = false }) => {
         {/* Image Part */}
         <motion.div 
           style={{ y }}
-          className="w-full md:w-1/2 aspect-[4/5] relative"
+          className="w-full md:w-1/2 aspect-[4/3] relative"
         >
           <div className="absolute inset-0 bg-sky-500/10 blur-3xl -z-10 rounded-full" />
           <div className="w-full h-full glass p-2 rounded-2xl overflow-hidden shadow-2xl">

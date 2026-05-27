@@ -38,7 +38,7 @@ const Hero = ({ onOpenSurprise }) => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-sky-400 font-medium tracking-[0.3em] uppercase text-sm mb-4 block"
         >
-          To My Dearest Friend
+          To My Anbanavan
         </motion.span>
         
         <motion.h1

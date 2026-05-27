@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Heart, Music, Volume2, VolumeX } from 'lucide-react';
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import img1 from '../assets/photos/Screenshot_2025-08-25-20-48-11-306_com.instagram.android.jpg';
+
+import img1 from '../assets/photos/14e1758c-2a0e-406b-9c5c-62ea38419492.png';
+import img2 from '../assets/photos/pexels-photo-1024960.jpeg';
+import img3 from '../assets/photos/image2.png';
+import img4 from '../assets/photos/picture2.jpg';
 
 const photos = [
-   img1,
-  "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&q=80&w=800"
+   img2,
+ img1,
+ img3,
+ img4
 ];
 
 const FinalLanding = () => {
@@ -63,62 +64,128 @@ const FinalLanding = () => {
           </p>
         </div>
 
-        {/* Masonry Gallery */}
+        {/* Custom Grid Gallery */}
         <div className="mb-32">
-          <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-            <Masonry gutter="24px">
-              {photos.map((src, i) => (
+          <div className="grid grid-cols-2 gap-6 h-[600px] md:h-[700px]">
+            {/* Card 1 - Full height */}
+            <motion.div
+              initial={{ opacity: 0, x: -40, filter: 'blur(15px)' }}
+              whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.1 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="relative group row-span-2"
+            >
+              <div className="absolute -inset-2 bg-sky-400/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="glass p-2.5 rounded-[1.5rem] overflow-hidden relative z-10 shadow-2xl bg-white/5 backdrop-blur-xl border border-white/10 h-full"
+              >
+                <img
+                  src={photos[0]}
+                  alt="Memory 1"
+                  className="w-full h-full object-cover rounded-[1rem] grayscale group-hover:grayscale-0 transition-all duration-1000"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </motion.div>
+            </motion.div>
+
+            {/* Card 2 - Half height */}
+            <motion.div
+              initial={{ opacity: 0, y: -40, filter: 'blur(15px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.2 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="relative group"
+            >
+              <div className="absolute -inset-2 bg-sky-400/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="glass p-2.5 rounded-[1.5rem] overflow-hidden relative z-10 shadow-2xl bg-white/5 backdrop-blur-xl border border-white/10 h-full"
+              >
+                <img
+                  src={photos[1]}
+                  alt="Memory 2"
+                  className="w-full h-full object-cover rounded-[1rem] grayscale group-hover:grayscale-0 transition-all duration-1000"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </motion.div>
+            </motion.div>
+
+            {/* Bottom right section - split into Card 3 and Card 4 + Heart */}
+            <div className="grid grid-cols-2 gap-6">
+              {/* Card 3 */}
+              <motion.div
+                initial={{ opacity: 0, x: -20, filter: 'blur(15px)' }}
+                whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, delay: 0.3 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="relative group"
+              >
+                <div className="absolute -inset-2 bg-sky-400/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <motion.div
-                  key={i}
-                  custom={i}
-                  initial={{ opacity: 0, y: 40, filter: 'blur(15px)', scale: 0.95 }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                    filter: 'blur(0px)',
-                    scale: 1,
-                    transition: {
-                      delay: i * 0.15,
-                      duration: 1.2,
-                      ease: [0.22, 1, 0.36, 1]
-                    }
-                  }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  whileHover={{
-                    y: -15,
-                    scale: 1.03,
-                    transition: { duration: 0.4, ease: "easeOut" }
-                  }}
-                  className="relative group"
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="glass p-2.5 rounded-[1.5rem] overflow-hidden relative z-10 shadow-2xl bg-white/5 backdrop-blur-xl border border-white/10 h-full"
                 >
-                  {/* Floating Outer Glow on Hover */}
-                  <div className="absolute -inset-2 bg-sky-400/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <img
+                    src={photos[2]}
+                    alt="Memory 3"
+                    className="w-full h-full object-cover rounded-[1rem] grayscale group-hover:grayscale-0 transition-all duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                </motion.div>
+              </motion.div>
 
+              {/* Card 4 + Heart */}
+              <motion.div
+                initial={{ opacity: 0, x: 20, filter: 'blur(15px)' }}
+                whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, delay: 0.4 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="relative group"
+              >
+                <div className="absolute -inset-2 bg-sky-400/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="glass p-2.5 rounded-[1.5rem] overflow-hidden relative z-10 shadow-2xl bg-white/5 backdrop-blur-xl border border-white/10 h-full"
+                >
+                  <img
+                    src={photos[3]}
+                    alt="Memory 4"
+                    className="w-full h-full object-cover rounded-[1rem] grayscale group-hover:grayscale-0 transition-all duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  
+                  {/* Blue Heart */}
                   <motion.div
-                    animate={{
-                      y: [0, -8, 0],
-                      rotate: [0, 0.5, -0.5, 0]
-                    }}
-                    transition={{
-                      duration: 4 + (i % 3),
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="glass p-2.5 rounded-[1.5rem] overflow-hidden relative z-10 shadow-2xl bg-white/5 backdrop-blur-xl border border-white/10"
+                    className="absolute bottom-4 right-4 z-20"
+                    whileHover={{ scale: 1.2 }}
                   >
-                    <img
-                      src={src}
-                      alt={`Memory ${i}`}
-                      className="w-full h-auto rounded-[1rem] grayscale group-hover:grayscale-0 contrast-125 brightness-110 transition-all duration-1000 ease-in-out"
-                    />
-
-                    {/* Soft Light Sweep Animation */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    <motion.div
+                      className="relative"
+                      whileHover={{ scale: 1.3 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      <Heart
+                        size={32}
+                        className="text-sky-400/50 fill-sky-400/50 hover:fill-sky-400 hover:text-sky-400 transition-all duration-300"
+                      />
+                      <motion.div
+                        className="absolute inset-0 bg-sky-400 rounded-full blur-xl opacity-0 hover:opacity-60 transition-opacity duration-300"
+                      />
+                    </motion.div>
                   </motion.div>
                 </motion.div>
-              ))}
-            </Masonry>
-          </ResponsiveMasonry>
+              </motion.div>
+            </div>
+          </div>
         </div>
 
         {/* Handwritten Style Messages */}
