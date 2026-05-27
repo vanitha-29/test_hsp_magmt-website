@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Heart, Music, Volume2, VolumeX } from 'lucide-react';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import img1 from '../assets/photos/Screenshot_2025-08-25-20-48-11-306_com.instagram.android.jpg';
 
 const photos = [
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+   img1,
   "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800",
   "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&q=80&w=800",
   "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
